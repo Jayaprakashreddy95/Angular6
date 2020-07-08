@@ -1,0 +1,21 @@
+{
+  "name": "ecommerce_store",
+  "version": "1.0.0",
+  "description": "ecommerce store",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "online",
+    "store",
+    "ecommerce",
+    "clothes"
+  ],
+  "author": "Jaya Prakash Reddy",
+  "license": "ISC",
+  "dependencies": {
+    "@aakashdeveloper/create-node-app": "^1.0.58",
+    "zone.js": "^0.10.3"
+  }
+}

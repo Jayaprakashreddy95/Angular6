@@ -1,0 +1,135 @@
+  <nav class="navbar navbar-primary navbar-static-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar3">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+      <a class="navbar-brand" href="#"><img src="../assets/trans.png"  class="img-responsive logo"></a>
+      </div>
+      
+      <div id="navbar3" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        
+        <li><a class="active" [routerLink]="['/home']" (click)="ShowrouterLink()"><b>HOME</b></a></li>
+        <li class="dropdown"><a  
+           ><b>PRODUCTS</b>&nbsp;<span class="caret"></span></a>
+          <ul class="dropdown-menu"><br>
+            <li><a [routerLink]="['/products']" (click)="ShowrouterLink()"><b>ALL PRODUCTS</b></a></li><hr>
+            <li><a [routerLink]="['/mensproducts']" (click)="ShowrouterLink()" ><b>MEN</b></a></li><hr>
+            <li><a [routerLink]="['/womensproducts']" (click)="ShowrouterLink()"><b>WOMEN</b></a></li><hr>
+            <li><a [routerLink]="['/kidsproducts']" (click)="ShowrouterLink()"><b>KIDS</b></a></li>
+           
+          </ul>
+        </li>
+        <li><a [routerLink]="['/aboutus']" (click)="ShowrouterLink()"><b>ABOUT US</b></a></li>
+        <li><a [routerLink]="['/checkout']" (click)="ShowrouterLink()"><b>CHECKOUT</b></a></li>
+      </ul>
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        <form class="navbar-form navbar-left" >
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for Products " [(ngModel)]="filterText" name="filterText" >
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit" (click)="clickSearch()">
+                <i class="glyphicon glyphicon-search" ></i>
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">
+          <span class="glyphicon glyphicon-user"></span>&nbsp;<b>PROFILE</b>&nbsp;<span class="caret"></span></a>
+         <ul class="dropdown-menu"><br>
+          <li><a [routerLink]="['/login']"><b>LOGIN</b></a></li><hr>
+          <li><a [routerLink]="['/signup']"> <b>SIGN UP</b></a></li>
+         </ul>
+       </li>
+        <li><a [routerLink]="['/wishlist']"  (click)="ShowrouterLink()"><span class="glyphicon glyphicon-heart"></span><b> WISHLIST</b></a></li>
+        <li><a [routerLink]="['/cart']" (click)="ShowrouterLink()"><span class="glyphicon glyphicon-shopping-cart">
+        </span><b>CART</b> <span *ngIf="number" class="badge badge-notify" >{{number.text}}</span></a></li>
+      </ul>
+    </div>
+    </div>
+  </nav>
+<div id="routeroutlet">
+  <router-outlet></router-outlet>
+</div>
+<div id="Productcomponent" hidden>
+  <app-product [filterText]="filterText"  ></app-product>
+</div>
+
+
+    <p align="right">
+    <button class="btn btn-primary btn-lg" (click)="printPage()">Print
+    <span class="glyphicon glyphicon-print"></span></button><br></p>
+
+<footer class="footer_part">
+  <div class="container">
+     
+          <div class="col-sm-4">
+              <div class="footer1">
+                  <h4><b>CATEGORY</b></h4>
+                  <ul class="list-unstyled">
+                      <li><a href="#">Men</a></li>
+                      <li><a href="#">Women</a></li>
+                      <li><a href="#">Kids</a></li>
+                     
+                  </ul>
+              </div>
+          </div>
+          <div class="col-sm-4">
+              <div class="footer1">
+                  <h4><b>COMPANY</b></h4>
+                  <ul class="list-unstyled">
+                      <li><a [routerLink]="['/home']">Home</a></li>
+                      <li><a [routerLink]="['/aboutus']"> About Us</a></li>
+                      <li><a [routerLink]="['/cart']">Cart</a></li>
+                      
+                  </ul>
+              </div>
+          </div>
+          <div class="col-sm-4">
+              <div class="footer1">
+                  <h4><b>ADDRESS</b></h4>
+                  <ul class="list-unstyled">
+                      <li><span class="glyphicon glyphicon-map-marker"></span>&nbsp;<a href="#">123, Toronto, Canada.</a></li>
+                      <li><span class="glyphicon glyphicon-earphone"></span>&nbsp;<a href="#">123-456-7890</a></li>
+                      <li><span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;<a href="#">jay@outlook.com</a></li>
+                  </ul>
+              </div>
+          </div>
+     
+  </div>
+</footer>
+
+<!----
+<footer class="container-fluid text-center">
+  <div class="col-sm-6 col-lg-2">
+    <div class="single_footer_part">
+        <h4>Category</h4>
+        <ul class="list-unstyled">
+            <li><a href="#">Male</a></li>
+            <li><a href="#">Female</a></li>
+            <li><a href="#">Shoes</a></li>
+            <li><a href="#">Fashion</a></li>
+        </ul>
+    </div>
+</div>
+  <p><b><u>Contact information: </u></b></p>
+  <p>Phone: 123-456-7890</p>
+ <p>Follow Us:</p>
+   <a href="https://www.facebook.com/"><i class="fa fa-facebook-official"></i></a>&nbsp;
+   <a href="https://twitter.com/"><i class="fa fa-twitter"></i></a>&nbsp;
+   <a href="https://www.linkedin.com/uas/login"><i class="fa fa-linkedin"></i></a>
+     <p>&copy; Copyright 2020</p>
+  <form class="form-inline">Get deals:
+    <input type="email" class="form-control" size="50" placeholder="Email Address">
+    <button type="button" class="btn btn-danger">Sign Up</button>
+  </form>
+</footer>
+-->
+

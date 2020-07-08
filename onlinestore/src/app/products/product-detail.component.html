@@ -1,0 +1,81 @@
+<div class="container-fluid">
+  
+  <div class="row"  >
+    <div class="col-lg-6"  >
+      <div class="zoom" id= "center" >
+      <button (click) = "show()"> 
+        <img  [src]="imgsrc"> </button>   </div>
+      <!-- Creates the bootstrap modal where the image will appear -->
+      <div [style.display]="showModal ? 'block' : 'none'" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">Image preview</h4>
+          </div>
+          <div class="modal-body">
+          
+            <img  [src]="imgsrc" id="imagepreview" style="width: 570px; height: 550px;" ></div>
+       
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" (click) = "hide()">Close</button>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+   
+    <div class="col-lg-6">
+      <h1><b>{{name | mycase: 'upper' }}</b></h1>
+      <h2>{{description}}</h2><hr>
+      <del><h4 [ngStyle]="{'visibility':price<25?'line-through':'hidden'}">
+        {{price | mycurrency:'CAD':'symbol'}}&nbsp;</h4></del>
+      <h3><b>{{price |discount:5| mycurrency:'CAD':'symbol'}}</b></h3>
+      <p><b>inclusive of all taxes</b></p>
+      <button a (click)="changeWishlistMessage()" (click)= "addToWish()" class="btn btn-danger">
+        <span class="glyphicon glyphicon-heart">&nbsp;ADD TO WISHLIST</span></button>&nbsp;
+
+      <button (click)= "addToCart()" (click)="sendNumber()" (click)=" addToRecent()"class="btn btn-success">
+         <span class="glyphicon glyphicon-shopping-cart">&nbsp; ADD TO CART </span> </button>&nbsp;
+
+         
+      <b style="color: green;">{{ successMessage }}</b><hr>
+        <h4 class="small-text"><span>Standard delivery:</span> 2-5 working days.</h4>
+        <h4 class="small-text"><span>Next day delivery:</span> order before 2pm ($5.79).</h4>
+        <h4 class="small-text"><span>Free shipping over $60.</span></h4>
+        <h4 class="small-text"><span>Free Exchanges & Easy Returns.</span></h4> <hr>
+        <h3><B>PRODUCT DETAILS:</B></h3>
+      <h3>{{details}}</h3>
+      <hr>
+      <button class=" btn btn-danger" (click)="onBack()" >Previous Page </button><hr>
+    
+    </div>
+  </div>
+</div><br>
+<hr/>
+
+<app-recentproducts></app-recentproducts>
+
+
+
+
+<!--
+<div class="container">
+  <div class="row">
+      <div class="col-lg-6">
+        <img  [src]="imgsrc"/>
+      </div>
+   </div>
+  
+    
+      <div class="col-lg-6">
+        <h1>{{name}}</h1>
+        <p class="price">$95.99</p>
+        <p class="description">{{description}}</p>
+      </div>
+            <button><span class="glyphicon glyphicon-heart">ADD TO WISHLIST</span></button>
+            <button> <span class="glyphicon glyphicon-shopping-cart">ADD TO BAG </span> </button>
+        <p class="small-text"><span>Standard delivery</span> 2-5 working days</p>
+        <p class="small-text"><span>Next day delivery</span> order before 2pm ($5.79)</p> 
+  </div>
+
+-->

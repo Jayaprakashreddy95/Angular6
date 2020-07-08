@@ -1,0 +1,189 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-heading">
+            <h2 class="text-center">Sign Up</h2>
+        </div>
+        <hr />
+        <div class="modal-body">
+            <form #form="ngForm" > 
+                <div class="form-group" [class.has-error]="firstName.invalid">
+                    <label for="fname" class="control-label">
+                        First Name:
+                    </label>
+                    <input type="text" placeholder="firstName"
+                    class="form-control" id="fname" name="firstname" 
+                    (ngModelChange)="firstToUpper($event)"
+                    [ngModel]="mymodel.firstname"
+                    #firstName="ngModel"
+                
+                     required/>  
+                   
+                </div>
+                <div class="alert alert-danger" *ngIf="firstName.invalid">
+                    First Name is required
+                </div>
+                
+                <div class="form-group"> 
+                    <label for="lname" class="control-label">
+                        Last Name:
+                    </label>
+                    <input type="text" placeholder="lastName"
+                    class="form-control" id="lname" name="lastname"
+                    [(ngModel)]="mymodel.lastname"
+                 />
+                </div> 
+                <div class="form-group" [class.has-error]="Email.invalid && Email.touched">
+                    <label for="mail" class="control-label">
+                        E-mail:
+                    </label>
+                    <input type="text" placeholder="a@a.com"
+                    class="form-control" id="mail" name="email" 
+                    [(ngModel)]="mymodel.email" 
+                    #Email="ngModel"
+                    pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"/>
+                    <div class="alert alert-danger" *ngIf="Email.invalid && Email.touched">
+                    Please enter a valid email
+                </div>
+                </div>
+                <div class="form-group" [class.has-error]="Password.invalid && Password.touched">
+                    <label for="password" class="control-label">
+                        Password:
+                    </label>
+                    <input type="password" placeholder="password"
+                    class="form-control" id="password" name="password"
+                    [(ngModel)]="mymodel.password" minlength="8"
+                    #Password="ngModel"/>
+                    <div class="alert alert-danger" *ngIf="Password.invalid && Password.touched">
+                        Min length of password is 8
+                    </div>
+                </div>
+    
+                <div class="form-group" [class.has-error]="Password.invalid && Password.touched">
+                    <label for="password" class="control-label">
+                        Re-enter password:
+                    </label>
+                    <input type="password" placeholder="password"
+                    class="form-control" id="password" name="password"
+                    [(ngModel)]="mymodel.password" minlength="8"
+                    #Password="ngModel"/>
+                    <div class="alert alert-danger" *ngIf="Password.invalid && Password.touched">
+                        Min length of password is 8
+                    </div>
+                </div>
+                <label><input type="checkbox" > &nbsp;Show Password</label>
+                <hr/>
+    
+                <p>By creating an account, you agree to Jay's <a style="color: rgb(255, 255, 255);">Conditions of Use </a>and <a style="color: rgb(255, 255, 255);">Privacy Notice.</a></p>
+                <hr/>    
+    
+                <button type="submit" class="btn btn-success" (click)=" onSubmit()"
+                [disabled]="hasCodeLangError">
+                Create Your Account
+            </button>&nbsp;
+                <button type="reset" class="btn btn-danger">
+                    Reset
+                </button>
+                </form>
+                <hr>
+                Already have an account? <a style="color: rgb(255, 255, 255);" [routerLink]="['/login']"> <b>Sign in</b></a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<!--
+<div class="container">
+<div class="panel panel-success">
+    <div class="panel-heading"  >
+        <h3><b>Sign Up</b></h3>
+    </div>
+    <div class="panel-body">
+        <form #form="ngForm" > 
+            <div class="form-group" [class.has-error]="firstName.invalid">
+                <label for="fname" class="control-label">
+                    First Name:
+                </label>
+                <input type="text" placeholder="firstName"
+                class="form-control" id="fname" name="firstname" 
+                (ngModelChange)="firstToUpper($event)"
+                [ngModel]="mymodel.firstname"
+                #firstName="ngModel"
+            
+                 required/>  
+               
+            </div>
+            <div class="alert alert-danger" *ngIf="firstName.invalid">
+                First Name is required
+            </div>
+            
+            <div class="form-group"> 
+                <label for="lname" class="control-label">
+                    Last Name:
+                </label>
+                <input type="text" placeholder="lastName"
+                class="form-control" id="lname" name="lastname"
+                [(ngModel)]="mymodel.lastname"
+             />
+            </div> 
+            <div class="form-group" [class.has-error]="Email.invalid && Email.touched">
+                <label for="mail" class="control-label">
+                    E-mail:
+                </label>
+                <input type="text" placeholder="a@a.com"
+                class="form-control" id="mail" name="email" 
+                [(ngModel)]="mymodel.email" 
+                #Email="ngModel"
+                pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"/>
+                <div class="alert alert-danger" *ngIf="Email.invalid && Email.touched">
+                Please enter a valid email
+            </div>
+            </div>
+            <div class="form-group" [class.has-error]="Password.invalid && Password.touched">
+                <label for="password" class="control-label">
+                    Password:
+                </label>
+                <input type="password" placeholder="password"
+                class="form-control" id="password" name="password"
+                [(ngModel)]="mymodel.password" minlength="8"
+                #Password="ngModel"/>
+                <div class="alert alert-danger" *ngIf="Password.invalid && Password.touched">
+                    Min length of password is 8
+                </div>
+            </div>
+
+            <div class="form-group" [class.has-error]="Password.invalid && Password.touched">
+                <label for="password" class="control-label">
+                    Re-enter password:
+                </label>
+                <input type="password" placeholder="password"
+                class="form-control" id="password" name="password"
+                [(ngModel)]="mymodel.password" minlength="8"
+                #Password="ngModel"/>
+                <div class="alert alert-danger" *ngIf="Password.invalid && Password.touched">
+                    Min length of password is 8
+                </div>
+            </div><hr/>
+
+            <p>By creating an account, you agree to Jay's <a style="color: blue;">Conditions of Use </a>and <a style="color: blue;">Privacy Notice.</a></p>
+            <hr/>    
+
+            <button type="submit" class="btn btn-success" (click)=" onSubmit()"
+            [disabled]="hasCodeLangError">
+            Create Your Account
+        </button>&nbsp;
+            <button type="reset" class="btn btn-danger">
+                Reset
+            </button>
+            </form>
+            <hr>
+            Already have an account? <a [routerLink]="['']"> <b>Sign in</b></a>
+
+    </div>
+</div>
+</div>
+-->

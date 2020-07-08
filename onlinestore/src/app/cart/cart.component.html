@@ -1,0 +1,128 @@
+<!--<h1>{{title}}</h1>
+<div class="cart-item" *ngFor="let item of items">
+  <span>{{ item.productName }}</span>
+  <img [src]="item.imgsrc"/>
+  <span>{{ item.price }}</span>  
+</div>-->
+
+<div class="container-fluid">
+  
+  <div class="row"  >
+    <div class="col-lg-9" >
+<div id = "cart" >
+	<table class="table table-bordered" >
+    				<thead style="background-color:#a8a7a7;">
+						<tr>
+
+							<th class="text-center"style="width:50%">Product</th>
+							<th class="text-center">Price</th>
+							<th class="text-center"style="width:15%">Quantity</th>
+							<th class="text-center">Subtotal</th>
+							<th class="text-center">Delete</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let item of items">
+							<td >
+								<div class="row">
+									<div class="col-sm-3"><img [src]="item.imgsrc"class="img-responsive"></div>
+									<div class="col-sm-6">
+										<h4>{{ item.productName }} </h4>
+										<p>{{ item.details }}</p>
+								
+									</div>
+								</div>
+							</td>
+                  <td class="text-center" data-th="Price"><h4>{{ item.price | mycurrency:'CAD':'symbol'}}</h4></td>
+			
+				  <td data-th="Quantity" class="text-center">
+								<button (click)="increaseItemCount(item)"> + </button>
+								<h4>{{ item.quantity}}</h4>
+								<button (click)="decreaseItemCount(item)"> - </button>
+								<!--<input type="number" class="form-control" value="1">--></td>
+							
+							<td data-th="Subtotal" class="text-center"><h4>{{item.price * item.quantity| mycurrency:'CAD':'symbol'}}</h4> </td>
+							<td data-th="Delete"><button class="btn-danger" (click)="removeItemFromCartAll(item)" >
+								<span class="glyphicon glyphicon-trash" ></span></button></td>
+			
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+			
+              <td></td>
+			  <td></td>
+			  <td data-th="total" align="right" class="total-cart"><h3><b>Total</b></h3></td>
+							<td data-th="total"  class="total-cart text-center" style="background-color: #a8a7a7">
+								<h3><b>{{getTotal()| mycurrency:'CAD':'symbol'}}</b></h3></td>
+								<td></td>
+							
+						</tr>
+					</tfoot>
+				</table>
+				<a [routerLink]="['/products']"class="btn btn-warning btn-lg"> Continue Shopping</a>&nbsp;
+				<button class="btn btn-danger btn-lg" (click)="clearCart()">Clear Cart</button>
+				<a type="button" class="btn btn-success btn-lg pull-right">Place Order</a><hr>
+				<div class="item">
+					<img src="../../assets/payment.JPG" style="width:100%;">
+				  </div>
+</div>
+     
+
+		
+	  </div>
+	  <div class="col-lg-3" id = "calc">
+		  <br>
+		<div class="couponborder">
+			<div style="text-align: center;" >
+			  <h4><b>10$ OFF YOUR PURCHASE</b></h4> 
+		  
+			</div>
+			<div  id="disc"><br/>
+				<h4>Use Promo Code: <span class="promo">YOURS10</span></h4>
+			  <p class="expire">Expires: Jan 03, 2021</p><br>
+			  <h5><i class="glyphicon glyphicon-info-sign"></i> &nbsp; Free shipping over $60.</h5>
+			</div>
+		</div>
+		  <hr/>
+		<h4>Cart Total :<b class="pull-right">{{getTotal()| mycurrency:'CAD':'symbol'}}</b></h4><hr/>
+		<h4>Coupon: <input class="pull-right" type="text" [(ngModel)]="coupon"> </h4><br>
+	    <!--<input class="pull-right" type="submit" (click)="onsubmit()">-->
+		<b><span class="pull-right" id="msg"></span></b><hr/>
+		<h4>After Discount: <b class="pull-right">{{onsubmit()| mycurrency:'CAD':'symbol'}}</b></h4><hr>
+		<h4>HST: <b class="pull-right">{{taxes()| mycurrency:'CAD':'symbol'}}</b></h4><hr>
+		<div>
+			
+			<h4>Shipping: <b class="pull-right">{{shipping()| mycurrency:'CAD':'symbol'}}</b></h4>
+			<b><span class="shipping-info pull-right"></span></b><hr>
+
+		</div>
+	
+		<h4>Grand Total: <b class="pull-right">{{grandTotal()| mycurrency:'CAD':'symbol'}}</b></h4><hr/>
+		<a type="button" [routerLink]="['/checkout']" class="btn btn-info btn-lg btn-block">Checkout</a><br/>
+
+			
+			 
+	  </div>
+	
+
+	  
+		 
+		  <div class="container" style="text-align: center;" id="empty">  
+			<div class="row">
+			  <div class="col-sm-6">
+				<img src="../../assets/empty-cart.jpg"  class="img-responsive" style="width:100%" alt="Image"><br>
+				<h3>Looks like you have no items in your cart !!!</h3>
+				<h3>Click <a [routerLink]="['/products']" style="color: blue;">here</a> to continue shopping.</h3>
+			  </div>
+			  </div>
+			  </div>
+	 
+			 
+			  
+	</div>
+	</div><br>
+
+
+	
+				

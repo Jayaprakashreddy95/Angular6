@@ -1,0 +1,20 @@
+
+<div class="container" id="body">    
+	<div class="row" >
+	  <div class="col-sm-3" *ngFor="let item of items" >
+		<div class="img-wraps"><span  class="closes" title="Delete" (click)="removeItemFromWish(item)">&times;</span>
+		<img [src]="item.imgsrc" class="img-responsive"></div>
+		<h4>{{ item.productName }} </h4>
+		<p>{{ item.details }}</p>
+		<h4>{{ item.price | mycurrency:'CAD':'symbol'}}</h4>
+		<a [routerLink]="['/products']"class="btn btn-default btn-sm btn-block">Move to Cart</a>&nbsp;
+	  </div>
+	</div><hr/>
+ 
+        <a [routerLink]="['/products']"class="btn btn-warning btn-lg"> Continue Shopping</a>&nbsp;
+		<button class="btn btn-danger btn-lg" (click)="clearCart()">Clear wishlist</button>
+       
+	</div>
+	  
+
+	 

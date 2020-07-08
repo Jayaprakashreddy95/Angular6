@@ -1,0 +1,146 @@
+
+      <div class="container-fluid">
+      <div class="row content">
+        <div class="col-sm-3 sidenav">
+          <h3><b>Search Products:</b></h3><br>
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Enter your search" [(ngModel)]="filterText">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">
+                <span class="glyphicon glyphicon-search"></span>
+              </button>
+            </span>
+          </div><hr>
+          
+          <div>
+            <h3><b>Number of Products: {{(products | searchFilter:filterText).length}} </b></h3>
+          </div><hr>
+          
+          <div class="price">
+            <button type="button" (click)="getPriceProducts()" class="btn btn-info btn-block" > price</button>
+          </div>
+
+          <div class="mens">
+            <button type="button" (click)="getMensProducts()" class="btn btn-info btn-block" > Mens</button>
+          </div>
+<!--
+          <h3 style="text-align: center;"><b>Filters:</b></h3>
+          <div class="allprod">
+            <button type="button" (click)="getProducts()" class="btn btn-info btn-block" > All Products</button>
+          </div><br/>
+
+          <div class="men">
+            <button type="button" (click)="getMensProducts()" class="btn btn-info btn-block" > Men</button>
+          </div><br/>
+
+          <div class="women">
+            <button type="button" (click)="getWomensProducts()" class="btn btn-info btn-block" > Women</button>
+          </div><br/>
+
+          
+          <div class="kids">
+            <button type="button" (click)="getKidsProducts()" class="btn btn-info btn-block" > Kids</button>
+          </div>
+       
+        
+
+          
+-->          
+
+<!--
+          <img src="../../assets/off.png" alt="" style= "width : 100%"><hr>
+          
+          <ul class="nav nav-pills nav-stacked">
+            <li><a class="active">Products</a></li>
+            <li><a [routerLink]="['/products']">All Products</a></li>
+            <li><a [routerLink]="['../mensproducts']"> Men</a></li>
+            <li><a>Women</a></li>
+            <li><a >Kids</a></li>
+          </ul><br>-->
+        </div>
+
+<div>
+  <div class="col-sm-9">
+  <div class="col-sm-3"  *ngFor="let prod of products | searchFilter:filterText | slice:startIndex:endIndex " >
+  <div class="card"  >
+ <a (click)="addToRecent()" [title]="prod.productName + ' details'" [routerLink]="['/products', prod.productid]" 
+  [queryParams]="{name:prod.productName,desc:prod.description,imgsrc:prod.imgsrc,price:prod.price,details:prod.details,quantity:prod.quantity,category:prod.category}">
+    <img [src]="prod.imgsrc" style="width: 100%;"></a>
+  <h3><b>{{prod.productName | mycase: 'upper'}} </b></h3>
+  <h4><del style="color: red;">{{prod.price | mycurrency:'CAD':'symbol'}}</del>&nbsp;<b>{{prod.price |  discount:5 | mycurrency:'CAD':'symbol'}}</b></h4> 
+  <H6>{{prod.description}}</H6>
+  <button a [routerLink]="['/Wishlist']" class="btn btn-danger"><span class="glyphicon glyphicon-heart"></span></button>&nbsp;
+  <button  a [routerLink]="['/cart']" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span></button>
+  <hr>
+</div>
+</div>
+</div>
+</div>
+<!--
+<div id="menproducts">
+  <div class="col-sm-9">
+  <div class="col-sm-3"  *ngFor="let prod of mensProducts | searchFilter:filterText | slice:startIndex:endIndex " >
+  <div class="card" >
+  <a [title]="prod.productName + ' details'" [routerLink]="['/products', prod.productid]"
+  [queryParams]="{name:prod.productName,desc:prod.description,imgsrc:prod.imgsrc,price:prod.price,details:prod.details,quantity:prod.quantity,category:prod.category}">
+    <img [src]="prod.imgsrc" style="width: 100%;"></a>
+  <h3><b>{{prod.productName | mycase: 'upper'}} </b></h3>
+  <h4><del style="color: red;">{{prod.price | mycurrency:'CAD':'symbol'}}</del>&nbsp;<b>{{prod.price |  discount:5 | mycurrency:'CAD':'symbol'}}</b></h4> 
+  <H6>{{prod.description}}</H6>
+  <button a [routerLink]="['/Wishlist']" class="btn btn-danger"><span class="glyphicon glyphicon-heart"></span></button>&nbsp;
+  <button  a [routerLink]="['/cart']" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span></button>
+  <hr>
+</div>
+</div>
+</div>
+</div>
+
+<div id="womenproducts">
+  <div class="col-sm-9">
+  <div class="col-sm-3"  *ngFor="let prod of womensProducts | searchFilter:filterText | slice:startIndex:endIndex " >
+  <div class="card" >
+  <a [title]="prod.productName + ' details'" [routerLink]="['/products', prod.productid]"
+  [queryParams]="{name:prod.productName,desc:prod.description,imgsrc:prod.imgsrc,price:prod.price,details:prod.details,quantity:prod.quantity,category:prod.category}">
+    <img [src]="prod.imgsrc" style="width: 100%;"></a>
+  <h3><b>{{prod.productName | mycase: 'upper'}} </b></h3>
+  <h4><del style="color: red;">{{prod.price | mycurrency:'CAD':'symbol'}}</del>&nbsp;<b>{{prod.price |  discount:5 | mycurrency:'CAD':'symbol'}}</b></h4> 
+  <H6>{{prod.description}}</H6>
+  <button a [routerLink]="['/Wishlist']" class="btn btn-danger"><span class="glyphicon glyphicon-heart"></span></button>&nbsp;
+  <button  a [routerLink]="['/cart']" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span></button>
+  <hr>
+</div>
+</div>
+</div>
+</div>
+
+<div id="kidsproducts">
+  <div class="col-sm-9">
+  <div class="col-sm-3"  *ngFor="let prod of kidsProducts | searchFilter:filterText | slice:startIndex:endIndex " >
+  <div class="card" >
+  <a [title]="prod.productName + ' details'" [routerLink]="['/products', prod.productid]"
+  [queryParams]="{name:prod.productName,desc:prod.description,imgsrc:prod.imgsrc,price:prod.price,details:prod.details,quantity:prod.quantity,category:prod.category}">
+    <img [src]="prod.imgsrc" style="width: 100%;"></a>
+  <h3><b>{{prod.productName | mycase: 'upper'}} </b></h3>
+  <h4><del style="color: red;">{{prod.price | mycurrency:'CAD':'symbol'}}</del>&nbsp;<b>{{prod.price |  discount:5 | mycurrency:'CAD':'symbol'}}</b></h4> 
+  <H6>{{prod.description}}</H6>
+  <button a [routerLink]="['/Wishlist']" class="btn btn-danger"><span class="glyphicon glyphicon-heart"></span></button>&nbsp;
+  <button  a [routerLink]="['/cart']" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span></button>
+  <hr>
+</div>
+</div>
+</div>
+</div>
+-->
+
+</div>
+
+<div class="row text-center">
+  <ul class="pagination pagination-lg ">
+    <li class="previous"><a href="#">Previous</a></li>
+    <li *ngFor="let i of getArrayFromNumber(products.length);let in = index" >
+    <a (click)="updateIndex(in)">{{in+1}}</a></li>
+    <li class="next"><a href="#">Next</a></li>
+  </ul>
+  </div>
+</div>
+<app-recentproducts></app-recentproducts>

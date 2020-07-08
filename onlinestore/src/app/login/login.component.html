@@ -1,0 +1,103 @@
+<body>
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-heading">
+            <h2 class="text-center">Login</h2>
+        </div>
+        <hr />
+        <div class="modal-body">
+            <form>
+                <div class="form-group" [class.has-error]="Email.invalid && Email.touched">
+                    <label for="mail" class="control-label">
+                        E-mail:
+                    </label>
+                    <input type="text" placeholder="Enter e-mail"
+                    class="form-control" id="mail" name="email" 
+                    [(ngModel)]="mymodel.email" 
+                    #Email="ngModel"
+                    pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"/>
+                    <div class="alert alert-danger" *ngIf="Email.invalid && Email.touched">
+                    Please enter a valid email
+                </div>
+                </div>
+                <div class="form-group"  [class.has-error]="pwd.invalid && pwd.touched">
+                  <label for="pwd" class="control-label" >Password:</label>
+                  <input type="password" class="form-control" id="pwd"
+                   placeholder="Enter password" name="pwd" [(ngModel)]="mymodel.pwd " 
+                   minlength="8" #pwd="ngModel"/>
+                   <div class="alert alert-danger" *ngIf="pwd.invalid">
+                    Min length of password is 8
+                </div><br>
+                <label><input type="checkbox" > &nbsp;Show Password &nbsp;</label>
+                </div>
+
+                  <label><input type="checkbox" name="remember">  &nbsp;Remember me</label>
+                
+                <hr />
+                <button type="submit"  (click) = "validate()" 
+                [disabled]="hasError" class="btn btn-warning">Log In</button> &nbsp;
+                <button type="button" class="btn btn-danger" onclick=""> Forgot Password?</button>
+              </form><hr/>
+              <div>
+                <h4 style="text-align: center;"><b>New to this site?</b></h4>
+                <button type="button" class="btn btn-info btn-block " a [routerLink]="['/signup']" > Create your Account</button>
+            </div><br/>
+        </div><br/>
+    </div>
+</div>
+
+<!-- Login
+<!-- Creates the bootstrap modal where the image will appear -->
+<!--
+<div [style.display]="showModal ? 'block' : 'none'" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="myModalLabel"><b>Login Here!</b></h3>
+        </div>
+        <div class="modal-body">
+           <div class="card" >
+            <form>
+                <div class="form-group" [class.has-error]="Email.invalid && Email.touched">
+                    <label for="mail" class="control-label">
+                        E-mail:
+                    </label>
+                    <input type="text" placeholder="Enter e-mail"
+                    class="form-control" id="mail" name="email" 
+                    [(ngModel)]="mymodel.email" 
+                    #Email="ngModel"
+                    pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"/>
+                    <div class="alert alert-danger" *ngIf="Email.invalid && Email.touched">
+                    Please enter a valid email
+                </div>
+                </div>
+                <div class="form-group"  [class.has-error]="pwd.invalid && pwd.touched">
+                  <label for="pwd" class="control-label" >Password:</label>
+                  <input type="password" class="form-control" id="pwd"
+                   placeholder="Enter password" name="pwd" [(ngModel)]="mymodel.pwd" 
+                   minlength="8" #pwd="ngModel"/>
+                   <div class="alert alert-danger" *ngIf="pwd.invalid">
+                    Min length of password is 8
+                </div>
+                </div>
+                <div class="checkbox">
+                  <label><input type="checkbox" name="remember"> Remember me</label>
+                </div>
+                <button type="submit"  (click) = "validate()" 
+                [disabled]="hasError" class="btn btn-success">Log In</button> &nbsp;
+                <button type="button" class="btn btn-primary" onclick=""> Forgot Password?</button>
+              </form>
+           </div>      
+     </div>
+       <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal" (click) = "hide()">Close</button>
+        </div>
+      </div>
+    </div>
+    </div>
+-->
+
+
+ 
+
+</body>

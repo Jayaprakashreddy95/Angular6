@@ -1,0 +1,73 @@
+.navbar  {
+    padding: 10px;
+    font-size: large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar-brand {
+    margin: 0px;
+    padding: 0px;
+  }
+  .navbar-brand>img {
+    height: 100%;
+    width: auto;
+  }
+  .navbar-brand {
+    height: 90px;
+  }
+  
+  .nav >li >a {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .navbar-toggle {
+    padding: 10px;
+    margin: 25px 15px 25px 0;
+  }
+  .navbar-primary {
+        box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+      border-bottom: 2px solid rgba(221, 221, 221, 0.82);
+      border-top: 3px solid #3e476d;
+        text-transform: uppercase;
+      color: #6d6d6d!important;
+  }
+  .navbar-primary a {
+      color: #6d6d6d!important;
+  }
+  
+  .dropdown-menu a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-menu {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+
+/*.navbar-brand{
+    margin: 0px;
+    padding: 0px;
+    
+}
+.logo{
+    width: 90px;
+    height: 60px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.navbar  {
+    padding: 20px;
+    background-color:rgb(122, 105, 105) ;
+    font-size: large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}*/
+
+/* Add abackground color and some padding to the footer */
+.footer_part {
+    background-color:rgb(84, 69, 102) ;
+    padding: 25px;
+    color:white;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  

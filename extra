@@ -1,0 +1,8 @@
+products: any[]= [
+    {
+    'id':123456,
+    'productName':'sweatshirt',
+    'description': 'Men Black Printed Sweatshirt'
+    'img src="
+    }
+];
