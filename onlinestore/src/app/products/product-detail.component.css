@@ -1,7 +1,4 @@
-img {
-  width:300px;
-  height:400px;
-}
+
 .h3, h4, h5, h6{
   font-style: oblique;
 }
@@ -10,8 +7,8 @@ img {
 
 .zoom {
   transition: transform .5s;
-  width: 100px;
-  height: 200px;
+  width: 50px;
+  height: 50px;
 }
 
 #center {
@@ -22,7 +19,50 @@ img {
 }
 
 .zoom:hover {
-  -ms-transform: scale(1.5); /* IE 9 */
-  -webkit-transform: scale(1.5); /* Safari 3-8 */
-  transform: scale(1.2); 
+  -ms-transform: scale(1.0); /* IE 9 */
+  -webkit-transform: scale(1.0); /* Safari 3-8 */
+  transform: scale(1.0); 
+}
+.sizeChart{
+  color: #10173A;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.sizeChart thead{
+  background: #10173A;
+  color: #f16021;
+}
+.sizeChart tr:nth-child(even){
+  background: #777C8C; 
+}
+
+.sizeChart tbody tr td:first-child{
+  font-size: 20px;
+}
+
+.simple-gallery {
+  width: 408px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+
+.mini img {
+  width: 130px;
+  height: 130px;
+  float: left;
+  margin: 4px 4px 0px 0px;
+  cursor: pointer;
+}
+
+.mini img:nth-of-type(4) {
+  margin-right: 0px;
+}
+
+.maxi {
+  width: 500px;
+  height: 600px;
+  display: block;
 }

@@ -25,10 +25,11 @@ export class ProductComponent implements OnInit {
     id: number;
     name: string;
     description: string;
-    imgsrc: string;
+    imgsrc: string[];
     price: number;
     details: string;
     quantity: number;
+    sizes: string[];
     //mensProducts: IProduct[];
 
     startIndex = 0;
@@ -65,6 +66,8 @@ export class ProductComponent implements OnInit {
       product1.price=this.price;
       product1.details=this.details;
       product1.quantity=this.quantity;
+      product1.sizes=this.sizes;
+  
 
       this.product=product1;
     };

@@ -27,8 +27,18 @@
 								<div class="row">
 									<div class="col-sm-3"><img [src]="item.imgsrc"class="img-responsive"></div>
 									<div class="col-sm-6">
-										<h4>{{ item.productName }} </h4>
+										<h4><b></b> </h4>
 										<p>{{ item.details }}</p>
+										<div class="form-group">
+											<label for="sel1"><h4><b>Size:</b></h4></label>&nbsp;
+										  <select class="form-control-lg">
+											<option>{{item.sizes[0]}}</option>
+											<option>{{item.sizes[1]}}</option>
+											<option>{{item.sizes[2]}}</option>
+											<option>{{item.sizes[3]}}</option>
+											<option>{{item.sizes[4]}}</option>
+										  </select>
+										  </div><br/>
 								
 									</div>
 								</div>
@@ -62,10 +72,6 @@
 				</table>
 				<a [routerLink]="['/products']"class="btn btn-warning btn-lg"> Continue Shopping</a>&nbsp;
 				<button class="btn btn-danger btn-lg" (click)="clearCart()">Clear Cart</button>
-				<a type="button" class="btn btn-success btn-lg pull-right">Place Order</a><hr>
-				<div class="item">
-					<img src="../../assets/payment.JPG" style="width:100%;">
-				  </div>
 </div>
      
 

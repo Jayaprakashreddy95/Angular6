@@ -30,7 +30,7 @@
 <div class="col-sm-3"  *ngFor="let prod of mensProducts| searchFilter:userInput | slice:startIndex:endIndex " >
 <div class="card" >
 <a [routerLink]="['/products', prod.productid]"
-[queryParams]="{name:prod.productName,desc:prod.description,imgsrc:prod.imgsrc,price:prod.price,details:prod.details,quantity:prod.quantity,category:prod.category}">
+[queryParams]="{name:prod.productName,desc:prod.description,imgsrc:prod.imgsrc,price:prod.price,details:prod.details,quantity:prod.quantity,category:prod.category, sizes:prod.sizes}">
 <img [src]="prod.imgsrc" style="width: 100%;"></a>
 <h3><b>{{prod.productName | mycase: 'upper'}} </b></h3>
 <h4><del style="color: red;">{{prod.price | mycurrency:'CAD':'symbol'}}</del>&nbsp;<b>{{prod.price |  discount:5 | mycurrency:'CAD':'symbol'}}</b></h4> 

@@ -62,10 +62,10 @@
 <div>
   <div class="col-sm-9">
   <div class="col-sm-3"  *ngFor="let prod of products | searchFilter:filterText | slice:startIndex:endIndex " >
-  <div class="card"  >
+  <div class="card"   >
  <a (click)="addToRecent()" [title]="prod.productName + ' details'" [routerLink]="['/products', prod.productid]" 
-  [queryParams]="{name:prod.productName,desc:prod.description,imgsrc:prod.imgsrc,price:prod.price,details:prod.details,quantity:prod.quantity,category:prod.category}">
-    <img [src]="prod.imgsrc" style="width: 100%;"></a>
+  [queryParams]="{name:prod.productName,desc:prod.description,imgsrc:prod.imgsrc,price:prod.price,details:prod.details,quantity:prod.quantity,category:prod.category, sizes:prod.sizes}">
+    <img class="img-rounded" [src]="prod.imgsrc[0]" style="width: 100%;"></a>
   <h3><b>{{prod.productName | mycase: 'upper'}} </b></h3>
   <h4><del style="color: red;">{{prod.price | mycurrency:'CAD':'symbol'}}</del>&nbsp;<b>{{prod.price |  discount:5 | mycurrency:'CAD':'symbol'}}</b></h4> 
   <H6>{{prod.description}}</H6>

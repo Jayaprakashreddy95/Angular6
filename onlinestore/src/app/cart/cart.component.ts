@@ -91,10 +91,10 @@ grandTotal(){
 }
 
 shipping(){
-  let shipping = 15;
+  let shipping = 0;
   if(this.getTotal() <= 60){
     $( ".shipping-info" ).hide();
-    return shipping;
+    return 15;
   }else{
     $( ".shipping-info" ).text( " Yay! Free delivery on this order. " ).show();
     return 0;
@@ -153,6 +153,8 @@ decreaseItemCount(item){
     // for cart show and hide
     if (this.getTotal() === 0){
       $("#cart").hide();
+      $("#calc").hide();
+
       $("#empty").show(); 
   } else {
     $("#empty").hide();

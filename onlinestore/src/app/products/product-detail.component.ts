@@ -6,7 +6,8 @@ import {debounceTime} from 'rxjs/operators';
 import { CartService } from '../cartservice';
 import { ProductService } from './product.service';
 import { WishService} from '../wishlist/wish.service';
-import { MessageService } from '../recentproducts/message.service'
+import { MessageService } from '../recentproducts/message.service';
+declare var $: any;
 
 
 @Component({
@@ -18,6 +19,7 @@ import { MessageService } from '../recentproducts/message.service'
 
 export class ProductDetailComponent implements OnInit{
   private _success = new Subject<string>();
+  //sizes;
 
     successMessage = ''; //added to cart
    
@@ -26,10 +28,11 @@ export class ProductDetailComponent implements OnInit{
     id: number;
     name: string;
     description: string;
-    imgsrc: string;
+    imgsrc: string[];
     price: number;
     details: string;
     quantity: number;
+    sizes: string[];
  
 
     constructor(private route: ActivatedRoute,
@@ -50,6 +53,7 @@ export class ProductDetailComponent implements OnInit{
       product1.price=this.price;
       product1.details=this.details;
       product1.quantity=this.quantity;
+      product1.sizes=this.sizes;
 
       this.product=product1;
     };
@@ -83,6 +87,7 @@ export class ProductDetailComponent implements OnInit{
             this.imgsrc = data['imgsrc'];
             this.details = data['details'];
             this.quantity = data['quantity'];
+            this.sizes = data['sizes'];
         
         });
         
@@ -90,6 +95,14 @@ export class ProductDetailComponent implements OnInit{
         this._success.subscribe(message => this.successMessage = message);
         this._success.pipe(debounceTime(3000))
         .subscribe(() => this.successMessage = '');
+
+      //this.sizes = this.ProductService.getSizes();
+
+      $(".mini img").click(function(){  
+
+        $(".maxi").attr("src",$(this).attr("src").replace("100x100","400x400"));
+       
+       });
 
 
     }

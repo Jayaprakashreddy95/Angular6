@@ -1,26 +1,15 @@
 
-.dl-small {
-  margin-bottom: 4px;
-}
 
-body {
-  margin: 0 auto;
-  padding: 1em;
-  max-width: 800px;
+#shipping{
+  
+  border-style: solid;
+  padding-right: 6px;
+  border-color: #888888;
 
 }
-
-.form-control {
-  width: auto;
-}
-
-.form-control-small {
-  width: 100px;
-}
-
-.form-control-large {
-  width: 310px;
-}
-.container{
-    font-size: large;
+#address{
+  
+  border-style: solid;
+  padding-right: 6px;
+  border-color: #888888;
 }
